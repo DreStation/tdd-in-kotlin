@@ -1,1 +1,1 @@
-class Watermelon(var isIntact: Boolean = true) {}
+class Watermelon(var hasExploded: Boolean = true) {}

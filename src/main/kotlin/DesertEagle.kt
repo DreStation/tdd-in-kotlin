@@ -9,9 +9,10 @@ class DesertEagle(var rounds: Int = 7, var isSafetyActive: Boolean = true) {
             }
         }
 
+        // Determine if watermelon has exploded from being shot. It only takes one .50 AE bullet to explode one.
         if (watermelon == null) println("Fired $triggerPulls round(s)")
         else {
-            watermelon.isIntact = false
+            watermelon.hasExploded = false
             println("Fired $triggerPulls round(s) into the watermelon. The watermelon has exploded.")
         }
     }
