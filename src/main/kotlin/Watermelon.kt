@@ -1,0 +1,1 @@
+class Watermelon(var isIntact: Boolean = true) {}

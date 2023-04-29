@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Assertions.assertAll
-import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.function.Executable
@@ -7,43 +6,38 @@ import kotlin.test.assertEquals
 
 class DesertEagleTest {
     @Test
-    @DisplayName("Ensure you can't fire when safety is active")
-    fun testFireWhenSafetyIsActive() {
+    fun `Ensure exception is thrown when safety is active`() {
         val de = DesertEagle()
         val exception = assertThrows<IllegalArgumentException> { de.fire(1) }
         assertEquals("Cannot fire when safety is active", exception.message)
     }
 
     @Test
-    @DisplayName("Fire once and have 6 bullets remaining")
-    fun testFireOnce() {
+    fun `Fire once and have 6 rounds remaining`() {
         val de = DesertEagle()
         de.isSafetyActive = false
         de.fire(1)
-        assertEquals(6, de.bullets)
+        assertEquals(6, de.rounds)
     }
 
     @Test
-    @DisplayName("Fire 7 times and have 0 bullets remaining")
-    fun testFireUntilEmpty() {
+    fun `Fire all 7 rounds and have 0 rounds remaining`() {
         val de = DesertEagle()
         de.isSafetyActive = false
         de.fire(7)
-        assertEquals(0, de.bullets)
+        assertEquals(0, de.rounds)
     }
 
     @Test
-    @DisplayName("Fire more than 7 times and ensure bullets don't go negative")
-    fun testFireWhileEmpty() {
+    fun `Fire 7+ times and ensure rounds don't go negative`() {
         val de = DesertEagle()
         de.isSafetyActive = false
         de.fire(14)
-        assertEquals(0, de.bullets)
+        assertEquals(0, de.rounds)
     }
 
     @Test
-    @DisplayName("Ensure nothing happens when inputting 0 or negative ints")
-    fun testFireWithNegativeInput() {
+    fun `Ensure exception is thrown when inputting 0 or negative ints`() {
         val de = DesertEagle()
         de.isSafetyActive = false
         assertAll(Executable {
