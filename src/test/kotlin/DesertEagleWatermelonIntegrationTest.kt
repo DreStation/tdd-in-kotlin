@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
 class DesertEagleWatermelonIntegrationTest {
@@ -8,7 +8,7 @@ class DesertEagleWatermelonIntegrationTest {
         val wm = Watermelon()
         de.isSafetyActive = false
         de.fire(1, wm)
-        assertFalse(wm.hasExploded)
+        assertTrue(wm.hasExploded)
     }
 
     @Test
@@ -17,6 +17,6 @@ class DesertEagleWatermelonIntegrationTest {
         val wm = Watermelon()
         de.isSafetyActive = false
         de.fire(Int.MAX_VALUE, wm)
-        assertFalse(wm.hasExploded)
+        assertTrue(wm.hasExploded)
     }
 }
