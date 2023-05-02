@@ -12,7 +12,7 @@ class DesertEagleWatermelonIntegrationTest {
     }
 
     @Test
-    fun `Watermelon should certainly explode when shot 2 mil+ times`() {
+    fun `Watermelon should certainly explode when shot 2 bil+ times`() {
         val de = DesertEagle()
         val wm = Watermelon()
         de.isSafetyActive = false
